@@ -1,0 +1,74 @@
+.btn-gradient {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: linear-gradient(#167FFB, #0F60C4);
+  transition: background 1s ease;
+  border: 1px solid #0F60C4;
+}
+
+.btn-gradient:hover {
+  background: rgb(7, 63, 127);
+  color: white;
+}
+
+#button {
+  width: 25%;
+  margin-top: 8px;
+}
+
+#button-show {
+  margin: 0 16px;
+}
+
+.button-show-destroy {
+  background: rgb(252, 108, 108);
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  width: 200px;
+  margin-top: 36px;
+  text-align: center;
+    h5 {
+      color: white;
+    }
+
+}
+.button-show-destroy-big {
+  display: flex;
+  justify-content: center;
+}
+
+#button-show-destroy-god {
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+  transition: background 1s ease;
+
+}
+
+#button-show-destroy-god:hover {
+  color: rgb(142, 1, 1);
+}
+
+.button-all {
+  background-color: $orange;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  border-radius: 8px;
+    &:hover {
+      text-decoration: none;
+      color: white;
+      background-color: $button-hover;
+    }
+}
+
+.dropdown {
+  display: flex;
+}
+
+
