@@ -1,0 +1,39 @@
+<div class="container-cards">
+  <div class="cards">
+    <% @prayers.each do |prayer| %>
+      <% if prayer.photo.attached? %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path prayer.photo.key, height:400, width: 300 %>')">
+          <%= link_to "", prayer_path(prayer), class: "card-link" %>
+          <div class="card-god-pic">
+            <div class="card-god-pic-photo">
+              <% if prayer.god && prayer.god.photo.attached? %>
+                <%= cl_image_tag prayer.god.photo.key, class: "god-pic", height: 100, width: 100, crop: :fill %>
+              <% else %>
+                <%= cl_image_tag("lego_gods", class: "god-pic", height: 100, width: 100, crop: :fill) %>
+              <% end %>
+            </div>
+            <div class="card-god-pic-name">
+              <%= prayer.name.capitalize %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("greece", height: 600, width: 400, crop: :fill) %>')">
+          <%= link_to "", prayer_path(prayer), class: "card-link" %>
+          <div class="card-god-pic">
+            <div class="card-god-pic-photo">
+              <% if prayer.god && prayer.god.photo.attached? %>
+                <%= cl_image_tag prayer.god.photo.key, class: "god-pic", height: 100, width: 100, crop: :fill %>
+              <% else %>
+                <%= cl_image_tag("lego_gods", class: "god-pic", height: 100, width: 100, crop: :fill) %>
+              <% end %>
+            </div>
+            <div class="card-god-pic-name">
+              <%= prayer.name.capitalize %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <%end %>
+  </div>
+</div>
