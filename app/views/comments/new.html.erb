@@ -1,0 +1,15 @@
+<div class="from-flex">
+  <div class="form">
+    <%= simple_form_for [@prayer, @comment] do |f| %>
+      <div class="form-info">
+        <%= f.input :description, label: "Add more details to your pray", input_html: { maxlength: 100} %>
+      </div>
+      <div class="form-info">
+        <%= f.association :god, label: "Select a god to help your prayer!", collection: @gods, include_blank: false %>
+      </div>
+      <div class="form-info">
+        <%= f.submit "new god", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
