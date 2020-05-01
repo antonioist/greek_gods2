@@ -1,16 +1,20 @@
 <div class="from-flex">
   <div class="form">
-    <%= simple_form_for @prayer do |f| %>
-      <div class="form-info">
-        <%= f.input :name, label: "Your name please"  %>
-      </div>
-      <div class="form-info">
-        <%= f.input :pray, label: "What you want to pray for?", collection: ["Love", "Study", "Health", "Money", "Smite", "Good Luck", "Bad Voodoo", "Bad Luck", "Stomach acke"], include_blank: false %>
-      </div>
-      <div class="form-info">
-        <%= f.input :photo, label: "Add a picture to help your prayer", as: :file %>
-      </div>
-      <%= f.submit "New Prayer", class: 'button-all'%>
-    <% end %>
+    <div class="form-div">
+      <%= simple_form_for @prayer do |f| %>
+        <div class="form-info">
+          <%= f.input :name, label: "Your name please"  %>
+        </div>
+        <div class="form-info">
+          <%= f.input :pray, label: "What you want to pray for?", collection: ["Love", "Study", "Health", "Money", "Smite", "Good Luck", "Bad Voodoo", "Bad Luck", "Stomach acke"], include_blank: false %>
+        </div>
+        <div class="form-info">
+          <%= f.input :photo, label: "Add a picture to help your prayer", as: :file %>
+        </div>
+        <div class="form-button">
+          <%= f.submit "New Prayer", class: 'button-all'%>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
