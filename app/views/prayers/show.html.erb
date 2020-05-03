@@ -1,33 +1,35 @@
-<div class="container-button-destroy">
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      What you want to do?
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <%= link_to "Add a God!", new_prayer_comment_path(@prayer), class: "button-all dropdown-item"%>
-      <%= link_to "Destroy a prayer!", prayer_path, method: :delete, data: { confirm: "Destroy #{@prayer.name} pray?"}, class: "button-all dropdown-item"%>
-      <% if @prayer.comment %>
-        <%= link_to "Destroy a god!", comment_path(@prayer.comment), method: :delete, data: { confirm: "Do you dare DESTROY ME!, the Greek god #{@prayer.comment.god.name if @prayer.comment}, YOU WILL PAY WITH YOUR LIFE FILTHY HUMAN"}, class: "button-all dropdown-item" %>
-        <!-- <i class="fas fa-meteor"></i> -->
-      <% else %>
-      <% end %>
+<div class="content-card-show">
+  <div class="container-button-destroy">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        What you want to do?
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Add a God!", new_prayer_comment_path(@prayer), class: "button-all dropdown-item"%>
+        <%= link_to "Destroy a prayer!", prayer_path, method: :delete, data: { confirm: "Destroy #{@prayer.name} pray?"}, class: "button-all dropdown-item"%>
+        <% if @prayer.comment %>
+          <%= link_to "Destroy a god!", comment_path(@prayer.comment), method: :delete, data: { confirm: "Do you dare DESTROY ME!, the Greek god #{@prayer.comment.god.name if @prayer.comment}, YOU WILL PAY WITH YOUR LIFE FILTHY HUMAN"}, class: "button-all dropdown-item" %>
+          <!-- <i class="fas fa-meteor"></i> -->
+        <% else %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @prayer.name.capitalize %></h2>
-      <p><%= @prayer.pray.capitalize %></p>
+  <div class="card-trip">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @prayer.name.capitalize %></h2>
+        <p><%= @prayer.pray.capitalize %></p>
+      </div>
+      <h2 class="card-trip-pricing"><%= @prayer.comment.description.capitalize if @prayer.comment %></h2>
+      <h2 class="card-trip-pricing"><%= @prayer.god.name.capitalize if @prayer.god %></h2>
+      <%#= cl_image_tag @prayer.god.photo.key, height: 50, width: 50, crop: :fill, class: "card-trip-user avatar-bordered" %>
+      <% if @prayer.god && @prayer.god.photo.attached?%>
+        <%= cl_image_tag @prayer.god.photo.key, height: 50, width: 50, crop: :fill, class: "card-trip-user avatar-bordered" %>
+      <% else %>
+        <%#= cl_image_tag("lego_gods", width: 400, height: 300, crop: :fill) %>
+      <% end %>
     </div>
-    <h2 class="card-trip-pricing"><%= @prayer.comment.description.capitalize if @prayer.comment %></h2>
-    <h2 class="card-trip-pricing"><%= @prayer.god.name.capitalize if @prayer.god %></h2>
-    <%#= cl_image_tag @prayer.god.photo.key, height: 50, width: 50, crop: :fill, class: "card-trip-user avatar-bordered" %>
-    <% if @prayer.god && @prayer.god.photo.attached?%>
-      <%= cl_image_tag @prayer.god.photo.key, height: 50, width: 50, crop: :fill, class: "card-trip-user avatar-bordered" %>
-    <% else %>
-      <%#= cl_image_tag("lego_gods", width: 400, height: 300, crop: :fill) %>
-    <% end %>
   </div>
 </div>
